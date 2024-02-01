@@ -28,7 +28,7 @@
 }
 .nav-bar{
     height:10vh;
-    background-color:cyan;
+    background-color:#40E0D0;
     align-items: center;
 }
 .nav-content{
@@ -59,7 +59,7 @@
 .profile{
     width:50px;
     height:50px;
-    border:2px solid black
+    border:1.5px solid black
 }
 .profile img{
     object-fit:fill;
@@ -69,21 +69,42 @@
 }
 .side-menu{
     width:14%;
-    background-color:cyan;  
+    background-color:#40E0D0;
+    overflow:hidden;
+}
+.side-menu:hover{
+    width:17%;
+    transition:width 0.3s ease;
+}
+.side-menu:not(:hover) {
+    width: 14%;
+    transition:width 0.3s ease;
 }
 .side-menu-items{
-    padding-left:20%;
-    gap:7em;
-    
- 
-}.side-menu-items li{
+    padding-top:1em;
+    gap:1.29em;
+}
+.side-menu-items li{
     list-style: none;
+    transition: background-color 0.3s ease;
+    padding-left:10%;
+    
+}
+.side-menu-items li:hover{
+    background-color: rgba(0, 0, 0, 0.1); 
 }
 
 .side-menu-items li a {
     text-decoration: none;
     color:black;
     font-size:1.3em;
+    display: block;
+    padding-bottom: 0.5em ; 
+    font-weight: 600;
+}
+.side-menu-items li a:hover {
+    transform: scale(1.1);
+    color: white;
 }
 
 

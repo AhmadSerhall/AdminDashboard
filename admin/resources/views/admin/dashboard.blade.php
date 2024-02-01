@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    
 </head>
 <body>
     <div class="admin-container">
@@ -27,10 +28,18 @@
         <div class="dashboard flex">
             <div class="side-menu ">
                 <ul class="side-menu-items flex column ">
-                    <li><a href="users.php">users</a></li>
-                    <li><a href="order.php">order</a></li>
-                    <li><a href="order.php">offers</a></li>
-                    <li><a href="order.php">revenu</a></li>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="user.php">Users</a></li>
+                    <li><a href="order.php">Orders</a></li>
+                    <li><a href="product.php">Products</a></li>
+                    <li><a href="category.php">Categories</a></li>
+                    <li><a href="customer.php">Customers</a></li>
+                    <li><a href="setting.php">Settings</a></li>
+                    <li><a href="analytic.php">Analytics</a></li>
+                    <li><a href="feedback.php">Feedbacks</a></li>
+                    <li><a href="subscription.php">Subscriptions</a></li>
+                    <li><a href="notification.php">Notifications</a></li>
+                    <li><a href="order.php">Support</a></li>
                 </ul>
             </div>
         </div>
