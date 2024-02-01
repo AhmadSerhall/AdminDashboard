@@ -14,7 +14,7 @@
                     <div class="logo">
                         <img src="{{ asset('assets/nsquaredlogo.jpg')}}" alt="img"/>
                     </div>
-                    <h1>nsquarred</h1>
+                    <h1>NSquared</h1>
                 </div>
                 <div class="input">
                     <input type="text" placeholder="search..." />
@@ -22,6 +22,16 @@
                 <div class="profile circle">
                     <img src="{{asset('assets/admin.jpg')}}" class="circle" alt="admin" />
                 </div>
+            </div>
+        </div>
+        <div class="dashboard flex">
+            <div class="side-menu ">
+                <ul class="side-menu-items flex column ">
+                    <li><a href="users.php">users</a></li>
+                    <li><a href="order.php">order</a></li>
+                    <li><a href="order.php">offers</a></li>
+                    <li><a href="order.php">revenu</a></li>
+                </ul>
             </div>
         </div>
         <script src="{{ asset('js/Chart.min.js') }}"></script>

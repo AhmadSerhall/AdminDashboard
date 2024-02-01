@@ -33,7 +33,7 @@
 }
 .nav-content{
     gap:30em;
-    justify-content: space-around;
+    justify-content: space-evenly;
 
 }
 .title-logo{
@@ -67,5 +67,25 @@
     height:100%;
 
 }
+.side-menu{
+    width:14%;
+    background-color:cyan;  
+}
+.side-menu-items{
+    padding-left:20%;
+    gap:7em;
+    
+ 
+}.side-menu-items li{
+    list-style: none;
+}
+
+.side-menu-items li a {
+    text-decoration: none;
+    color:black;
+    font-size:1.3em;
+}
+
+
 
 
