@@ -12,9 +12,15 @@
             <div class="nav-content flex row">
                 <div class="title-logo flex row">
                     <div class="logo">
-                <img src="{{ asset('assets/nsquaredlogo.jpg')}}" alt="img"/>
+                        <img src="{{ asset('assets/nsquaredlogo.jpg')}}" alt="img"/>
+                    </div>
+                    <h1>nsquarred</h1>
                 </div>
-                <h1>nsquarred</h1>
+                <div class="input">
+                    <input type="text" placeholder="search..." />
+                </div>
+                <div class="profile circle">
+                    <img src="{{asset('assets/admin.jpg')}}" class="circle" alt="admin" />
                 </div>
             </div>
         </div>
