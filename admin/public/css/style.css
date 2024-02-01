@@ -75,6 +75,7 @@ input::placeholder{
     width:14%;
     background-color:#40E0D0;
     overflow:hidden;
+    position: relative;
 }
 .side-menu:hover{
     width:17%;
@@ -88,18 +89,24 @@ input::placeholder{
     padding-top:1em;
     gap:1.29em;
 }
-.side-menu-items i{
-    /* width:50px;
-    height:50px; */
-}
+
 .side-menu-items li{
     list-style: none;
     transition: background-color 0.3s ease;
     padding-left:10%;
+    position: relative;
     
+}
+.fas.fa-caret-right.right {
+   position:absolute;
+   right:15px;
+   margin-left:5px;
 }
 .side-menu-items li:hover{
     background-color: rgba(0, 0, 0, 0.1); 
+}
+.side-menu-items i{
+    padding-right:0.5em;
 }
 
 .side-menu-items li a {

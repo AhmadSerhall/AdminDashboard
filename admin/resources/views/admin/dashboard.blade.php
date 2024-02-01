@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512...">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css" integrity="sha512...">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/solid.min.css" integrity="sha512...">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/regular.min.css" integrity="sha512...">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/brands.min.css" integrity="sha512..."> -->
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
@@ -31,17 +35,17 @@
             <div class="side-menu ">
                 <ul class="side-menu-items flex column ">
                     <li><a href="#"><i class="fas fa-home"></i> Dashboard</a></li>
-                    <li><a href="user.php">Users</a></li>
-                    <li><a href="order.php">Orders</a></li>
-                    <li><a href="product.php">Products</a></li>
-                    <li><a href="category.php">Categories</a></li>
-                    <li><a href="customer.php">Customers</a></li>
-                    <li><a href="setting.php">Settings</a></li>
-                    <li><a href="analytic.php">Analytics</a></li>
-                    <li><a href="feedback.php">Feedbacks</a></li>
-                    <li><a href="subscription.php">Subscriptions</a></li>
-                    <li><a href="notification.php">Notifications</a></li>
-                    <li><a href="order.php">Support</a></li>
+                    <li><a href="user.php"><i class="fas fa-users"></i>Users<i class="fas fa-caret-right right"></i></a></li>
+                    <li><a href="order.php"><i class="fas fa-pen"></i>Orders<i class="fas fa-caret-right right"></i></a></li>
+                    <li><a href="product.php"><i class="fas fa-box-open"></i>Products<i class="fas fa-caret-right right"></i></a></li>
+                    <li><a href="category.php"><i class="fas fa-layer-group"></i><i class="fas fa-caret-right right"></i>Categories</a></li>
+                    <li><a href="customer.php"><i class="fas fa-people-arrows"></i>Customers<i class="fas fa-caret-right right"></i></a></li>
+                    <li><a href="setting.php"><i class="fas fa-wrench"></i>Settings<i class="fas fa-caret-right right"></i></a></li>
+                    <li><a href="analytic.php"><i class="fas fa-chart-pie"></i>Analytics<i class="fas fa-caret-right right"></i></a></li>
+                    <li><a href="feedback.php"><i class="fas fa-heart"></i>Feedbacks<i class="fas fa-caret-right right"></i></a></li>
+                    <li><a href="subscription.php"><i class="fas fa-thumbs-up"></i>Subscriptions<i class="fas fa-caret-right right"></i></a></li>
+                    <li><a href="notification.php"><i class="fas fa-envelope"></i>Notifications<i class="fas fa-caret-right right"></i></a></li>
+                    <li><a href="order.php"><i class="fas fa-handshake"></i>Support<i class="fas fa-caret-right right"></i></a></li>
                 </ul>
             </div>
         </div>
