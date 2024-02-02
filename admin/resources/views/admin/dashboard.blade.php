@@ -47,6 +47,9 @@
                     <li><a href="notification.php"><i class="fas fa-envelope"></i>Notifications<i class="fas fa-caret-right right"></i></a></li>
                     <li><a href="order.php"><i class="fas fa-handshake"></i>Support<i class="fas fa-caret-right right"></i></a></li>
                 </ul>
+                <div class="charts-container" id="charts-container">
+
+                </div>
             </div>
         </div>
         <script src="{{ asset('js/Chart.min.js') }}"></script>
