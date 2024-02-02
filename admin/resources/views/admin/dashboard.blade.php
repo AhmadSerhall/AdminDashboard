@@ -47,16 +47,45 @@
                     <li><a href="notification.php"><i class="fas fa-envelope"></i>Notifications<i class="fas fa-caret-right right"></i></a></li>
                     <li><a href="order.php"><i class="fas fa-handshake"></i>Support<i class="fas fa-caret-right right"></i></a></li>
                 </ul>
-                <div class="charts-container" id="charts-container">
+            </div>
+            <div class="charts-container" id="charts-container">
 
-                </div>
             </div>
         </div>
-        <script src="{{ asset('js/Chart.min.js') }}"></script>
+        @push('js')
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script>
+        @endpush
         <script src="{{ asset('js/app.js') }}"></script>
         <script>
+document.addEventListener('DOMContentLoaded', function () {
+    fetch('/fetch-chart-data')
+        .then(response => response.json())
+        .then(chartData => {
+            var ctx = document.getElementById('charts-container').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5'],
+                    datasets: [{
+                        label: 'Temperature',
+                        data: chartData,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+});
+</script>
 
-        </script>
     </div>
 </body>
 </html>

@@ -20,5 +20,5 @@ Route::get('/', function () {
 Route::get('/admin', function () {
     return view('admin.dashboard');
 });
-Route::get('/fetch-chart-data',[ChartController::class,'fetchData']);
+Route::get('/fetch-chart-data', [ChartController::class, 'fetchData']);
 
