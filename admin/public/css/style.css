@@ -3,7 +3,7 @@
     padding:0px;
     border: 0;
     box-sizing: border-box;
-    
+     font-family: 'Roboto Serif', serif;
 
 }
 .full-height{
@@ -54,6 +54,7 @@
 .title-logo h1{
     padding-top:5px;
     color:white;
+    letter-spacing: 2px;
 }
 .input input{
     width:20em;
@@ -117,7 +118,7 @@ input::placeholder{
 
 .side-menu-items li a {
     text-decoration: none;
-    color:black;
+    color:white;
     font-size:1.3em;
     display: block;
     padding-bottom: 0.5em ; 
@@ -125,7 +126,7 @@ input::placeholder{
 }
 .side-menu-items li a:hover {
     transform: scale(1.1);
-    color: white;
+    color: #333333;
 }
 .charts-container{
     width:100%;
@@ -154,7 +155,7 @@ input::placeholder{
     border-radius: 12px;
     width:50%;
     height:50%;
-    padding:2em;
+    padding:1em;
     border:2px solid pink;
     color: blue;
 }
