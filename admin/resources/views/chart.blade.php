@@ -12,36 +12,6 @@
     </div>
 
     <script>
-        // fetch('/fetch-chart-data')
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         const labels = data.labels;
-        //         const values = data.values;
-        //         const ctx = document.getElementById('weatherChart').getContext('2d');
-        //         new Chart(ctx, {
-        //             type: 'bar',
-        //             data: {
-        //                 labels: labels,
-        //                 datasets: [{
-        //                     label: 'Temperature (°C)',
-        //                     data: values,
-        //                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        //                     borderColor: 'rgba(75, 192, 192, 1)',
-        //                     borderWidth: 1
-        //                 }]
-        //             },
-        //             options: {
-        //                 scales: {
-        //                     y: {
-        //                         beginAtZero: true
-        //                     }
-        //                 }
-        //             }
-        //         });
-        //     })
-        //     .catch(error => {
-        //         console.error('Error fetching chart data:', error);
-        //     });
         document.addEventListener('DOMContentLoaded', function () {
     fetch('/fetch-chart-data')
         .then(response => response.text())

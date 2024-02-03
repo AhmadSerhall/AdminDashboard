@@ -96,7 +96,7 @@
     </script>
             </div>
             <div class="small-containers">
-        <div class="small-container interact-container draggable" id="container1">
+        <div class="small-container draggable dropzone" id="container1">
         <canvas id="doughnutChart"></canvas>
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
@@ -119,7 +119,7 @@
                 });
             </script>
         </div>
-        <div class="small-container interact-container draggable" id="container2">
+        <div class="small-container draggable dropzone" id="container2">
         <canvas id="lineChart"></canvas>
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
@@ -147,7 +147,7 @@
                 });
             </script>
         </div>
-        <div class="small-container interact-container" id="container3">
+        <div class="small-container draggable dropzone" id="container3">
         <canvas id="radarChart"></canvas>
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
@@ -168,7 +168,7 @@
                 });
             </script>
         </div>
-        <div class="small-container interact-container" id="container4">
+        <div class="small-container draggable dropzone" id="container4">
         <canvas id="polarAreaChart"></canvas>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
@@ -195,13 +195,9 @@
         </div>
     </div>
         </div>
-        <!-- @push('js')
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script>
-        @endpush -->
         <script src="https://cdn.jsdelivr.net/npm/interactjs@1.10.12/dist/interact.min.js"></script>
         <script src="{{ asset('js/app.js') }}"></script>
         <script>
-    // Draggable configuration
   
 </script>
 
