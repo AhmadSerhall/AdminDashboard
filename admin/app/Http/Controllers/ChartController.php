@@ -61,8 +61,86 @@ class ChartController extends Controller
     
         return ['labels' => $labels, 'values' => $values];
     }
-    
-    private function parseVisualCrossingCsvData($csvString)
+    //first api done
+
+
+    public function fetchSecondChartData()
+    {
+        $apiKey = 'PAXRVBG4VX4FEN5EH2A4HMZTT';
+         $startDateTime = '2023-01-01T00:00:00';
+        $endDateTime = '2023-01-05T23:59:59';
+        $response = Http::withoutVerifying()->get("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Denver,CO?unitGroup=metric&key={$apiKey}&contentType=csv&include=days&elements=datetime,temp");
+        $apiResponse = $response->body();
+        Log::info($apiResponse);
+
+        if ($response->successful()) {
+            $data = $this->parseSecondCsvData($apiResponse);
+
+            if (!empty($data)) {
+                $chartData = $this->processSecondData($data);
+
+                return response()->json($chartData);
+            }
+        }
+
+        return response()->json(['error' => $apiResponse]);
+    }
+    private function parseSecondCsvData($csvString)
+    {
+        $lines = explode("\n", trim($csvString));
+        $header = str_getcsv(array_shift($lines));
+
+        $data = [];
+        foreach ($lines as $line) {
+            $row = array_combine($header, str_getcsv($line));
+            if (isset($row['datetime'])) {
+                $data[] = $row;
+            } else {
+                Log::warning('Key "datetime" not found in CSV row', ['row' => $row]);
+            }
+        }
+
+        Log::info('Parsed Visual Crossing CSV Data:', ['data' => $data]);
+        return $data;
+    }
+
+    private function processSecondData($data)
+    {
+        $labels = [];
+        $values = [];
+
+        foreach ($data as $entry) {
+            $labels[] = $entry['datetime'];
+            $values[] = floatval($entry['temp']);
+        }
+
+        Log::info('Processed Visual Crossing Data:', ['labels' => $labels, 'values' => $values]);
+
+        return ['labels' => $labels, 'values' => $values];
+    }
+    //second api done 
+
+public function fetchThirdChartData()
+{
+    $apiKey = 'TD9MZFLUBN88NX7FSMZUJBWAS';
+    $response = Http::withoutVerifying()->get("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Denver,CO?unitGroup=metric&key={$apiKey}&contentType=csv&include=days&elements=datetime,temp,windspeed50,winddir50,windspeed80,winddir80,windspeed100,winddir100");
+    $apiResponse = $response->body();
+    Log::info($apiResponse);
+
+    if ($response->successful()) {
+        $data = $this->parseThirdCsvData($apiResponse);
+
+        if (!empty($data)) {
+            $chartData = $this->processThirdData($data);
+
+            return response()->json($chartData);
+        }
+    }
+
+    return response()->json(['error' => $apiResponse]);
+}
+
+private function parseThirdCsvData($csvString)
 {
     $lines = explode("\n", trim($csvString));
     $header = str_getcsv(array_shift($lines));
@@ -70,8 +148,6 @@ class ChartController extends Controller
     $data = [];
     foreach ($lines as $line) {
         $row = array_combine($header, str_getcsv($line));
-
-        // Check if 'datetime' key is present
         if (isset($row['datetime'])) {
             $data[] = $row;
         } else {
@@ -79,11 +155,11 @@ class ChartController extends Controller
         }
     }
 
-    Log::info('Parsed Visual Crossing CSV Data:', ['data' => $data]);
+    Log::info('Parsed Third Chart CSV Data:', ['data' => $data]);
     return $data;
 }
 
-private function processVisualCrossingData($data)
+private function processThirdData($data)
 {
     $labels = [];
     $values = [];
@@ -93,29 +169,11 @@ private function processVisualCrossingData($data)
         $values[] = floatval($entry['temp']);
     }
 
-    Log::info('Processed Visual Crossing Data:', ['labels' => $labels, 'values' => $values]);
+    Log::info('Processed Third Chart Data:', ['labels' => $labels, 'values' => $values]);
 
     return ['labels' => $labels, 'values' => $values];
 }
 
-public function fetchSecondChartData()
-{
-    $apiKey = 'PAXRVBG4VX4FEN5EH2A4HMZTT';
-    $response = Http::withoutVerifying()->get("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Denver,CO?unitGroup=metric&key={$apiKey}&contentType=csv&include=days&elements=datetime,temp");
-    $apiResponse = $response->body();
-    Log::info($apiResponse);
 
-    if ($response->successful()) {
-        $data = $this->parseVisualCrossingCsvData($apiResponse);
-
-        if (!empty($data)) {
-            $chartData = $this->processVisualCrossingData($data);
-
-            return response()->json($chartData);
-        }
-    }
-
-    return response()->json(['error' => $apiResponse]);
-}
 
 }

@@ -113,7 +113,7 @@
                         data: {
                             labels: labels,
                             datasets: [{
-                                label: 'Second Chart Data',
+                                label: 'Solar Radiations',
                                 data: values,
                                 backgroundColor: [
                                     'rgba(255, 99, 132, 0.6)',
@@ -183,18 +183,24 @@
             </script> -->
         </div>
         <div class="small-container draggable dropzone" id="container2">
-        <canvas id="lineChart"></canvas>
-            <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    const lineCtx = document.getElementById('lineChart').getContext('2d');
-                    new Chart(lineCtx, {
-                        type: 'line',
+        <canvas id="thirdChart"></canvas>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/fetch-third-chart-data')
+                .then(response => response.json())
+                .then(data => {
+                    const labels = data.labels;
+                    const values = data.values;
+
+                    const thirdChartCtx = document.getElementById('thirdChart').getContext('2d');
+                    new Chart(thirdChartCtx, {
+                        type: 'doughnut', 
                         data: {
-                            labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5'],
+                            labels: labels,
                             datasets: [{
-                                label: 'Temperature (°C)',
-                                data: [25, 28, 22, 30, 27],
-                                borderColor: 'rgba(255, 99, 132, 1)',
+                                label: 'Third Chart Data',
+                                data: values,
+                                borderColor: 'rgba(75, 192, 192, 1)',
                                 borderWidth: 2,
                                 fill: false
                             }]
@@ -207,8 +213,12 @@
                             }
                         }
                     });
+                })
+                .catch(error => {
+                    console.error('Error fetching third chart data:', error);
                 });
-            </script>
+        });
+    </script>
         </div>
         <div class="small-container draggable dropzone" id="container3">
         <canvas id="radarChart"></canvas>
