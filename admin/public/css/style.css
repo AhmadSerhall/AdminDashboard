@@ -52,7 +52,7 @@
     height:100%;
 }
 .title-logo h1{
-    padding-top:5px;
+    padding-top:7px;
     color:white;
     letter-spacing: 2px;
 }
@@ -158,4 +158,10 @@ input::placeholder{
     padding:1em;
     border:2px solid pink;
     color: blue;
+}
+/* effect for the input search */
+.hover{
+    transform: scale(1.1);
+    background-color: rgba(0, 0, 0, 0.1); 
+    color:#333333 !important;
 }

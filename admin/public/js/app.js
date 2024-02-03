@@ -89,7 +89,18 @@
         target.setAttribute('data-x', x);
         target.setAttribute('data-y', y);
     }
-    
+    //script for search functionality
+    $(document).ready(function () {
+        $('.input input').on('input', function () {
+            var searchValue = $(this).val().toLowerCase();
+            $('.side-menu-items a').removeClass('hover');
+            if (searchValue !== "") {
+                $('.side-menu-items a').filter(function () {
+                    return $(this).text().toLowerCase().includes(searchValue);
+                }).addClass('hover');
+            }
+        });
+    });
     
     
     

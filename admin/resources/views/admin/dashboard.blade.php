@@ -8,10 +8,9 @@
     <script src="https://cdn.jsdelivr.net/npm/interactjs@1.10.12/dist/interact.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,200&display=swap" rel="stylesheet">
-
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 </head>
@@ -45,8 +44,8 @@
                     <li><a href="setting.php"><i class="fas fa-wrench"></i>Settings<i class="fas fa-caret-right right"></i></a></li>
                     <li><a href="analytic.php"><i class="fas fa-chart-pie"></i>Analytics<i class="fas fa-caret-right right"></i></a></li>
                     <li><a href="feedback.php"><i class="fas fa-heart"></i>Feedbacks<i class="fas fa-caret-right right"></i></a></li>
-                    <li><a href="subscription.php"><i class="fas fa-thumbs-up"></i>Subscriptions<i class="fas fa-caret-right right"></i></a></li>
-                    <li><a href="notification.php"><i class="fas fa-envelope"></i>Notifications<i class="fas fa-caret-right right"></i></a></li>
+                    <li><a href="subscription.php"><i class="fas fa-thumbs-up"></i>Likes<i class="fas fa-caret-right right"></i></a></li>
+                    <li><a href="notification.php"><i class="fas fa-envelope"></i>Messages<i class="fas fa-caret-right right"></i></a></li>
                     <li><a href="order.php"><i class="fas fa-handshake"></i>Support<i class="fas fa-caret-right right"></i></a></li>
                 </ul>
             </div>
@@ -197,11 +196,7 @@
         </div>
     </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/interactjs@1.10.12/dist/interact.min.js"></script>
         <script src="{{ asset('js/app.js') }}"></script>
-        <script>
-  
-</script>
 
     </div>
 </body>
