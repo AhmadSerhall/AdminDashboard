@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512...">
+    <script src="https://cdn.jsdelivr.net/npm/interactjs@1.10.12/dist/interact.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 </head>
@@ -92,7 +96,7 @@
     </script>
             </div>
             <div class="small-containers">
-        <div class="small-container" draggable="true">
+        <div class="small-container interact-container draggable" id="container1">
         <canvas id="doughnutChart"></canvas>
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
@@ -115,7 +119,7 @@
                 });
             </script>
         </div>
-        <div class="small-container" draggable="true">
+        <div class="small-container interact-container draggable" id="container2">
         <canvas id="lineChart"></canvas>
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
@@ -143,7 +147,7 @@
                 });
             </script>
         </div>
-        <div class="small-container" draggable="true">
+        <div class="small-container interact-container" id="container3">
         <canvas id="radarChart"></canvas>
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
@@ -164,7 +168,7 @@
                 });
             </script>
         </div>
-        <div class="small-container" draggable="true">
+        <div class="small-container interact-container" id="container4">
         <canvas id="polarAreaChart"></canvas>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
@@ -194,7 +198,13 @@
         <!-- @push('js')
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script>
         @endpush -->
+        <script src="https://cdn.jsdelivr.net/npm/interactjs@1.10.12/dist/interact.min.js"></script>
         <script src="{{ asset('js/app.js') }}"></script>
+        <script>
+    // Draggable configuration
+  
+</script>
+
     </div>
 </body>
 </html>
