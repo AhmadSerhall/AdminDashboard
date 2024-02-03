@@ -49,6 +49,7 @@
                 </ul>
             </div>
                 <div class="charts-container" id="charts-container">
+                    <div class="big-container">
                     <canvas id="weatherChart"></canvas>
                 
                     <script>
@@ -93,7 +94,13 @@
                 });
         });
     </script>
-            
+            </div>
+            <div class="small-containers">
+        <div class="small-container"></div>
+        <div class="small-container"></div>
+        <div class="small-container"></div>
+        <div class="small-container"></div>
+    </div>
         </div>
         @push('js')
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script>
