@@ -48,54 +48,57 @@
                     <li><a href="order.php"><i class="fas fa-handshake"></i>Support<i class="fas fa-caret-right right"></i></a></li>
                 </ul>
             </div>
-            <div class="charts-container" id="charts-container">
-    <canvas id="weatherChart"></canvas>
-</div>
+                <div class="charts-container" id="charts-container">
+                    <canvas id="weatherChart"></canvas>
+                
+                    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/fetch-chart-data')
+                .then(response => response.json())
+                .then(data => {
+                    const labels = data.labels;
+                    const values = data.values;
+                    const barColors = [
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)', 
+                        'rgba(255, 206, 86, 0.6)', 
+                        'rgba(75, 192, 192, 0.6)',
+                        'rgba(153, 102, 255, 0.6)'
+                    ];
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        fetch('/fetch-chart-data')
-            .then(response => response.json())
-            .then(data => {
-                const labels = data.labels;
-                const values = data.values;
-
-                const ctx = document.getElementById('weatherChart').getContext('2d');
-                new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: labels,
-                        datasets: [{
-                            label: 'Temperature (°C)',
-                            data: values,
-                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                            borderColor: 'rgba(75, 192, 192, 1)',
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true
+                    const ctx = document.getElementById('weatherChart').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Temperature (°C)',
+                                data: values,
+                                backgroundColor: barColors,
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                borderWidth: 2
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
                             }
                         }
-                    }
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching chart data:', error);
                 });
-            })
-            .catch(error => {
-                console.error('Error fetching chart data:', error);
-            });
-    });
-</script>
+        });
+    </script>
             
         </div>
         @push('js')
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script>
         @endpush
         <script src="{{ asset('js/app.js') }}"></script>
-       
-
-
     </div>
 </body>
 </html>
