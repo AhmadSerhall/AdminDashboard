@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512...">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css" integrity="sha512...">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/solid.min.css" integrity="sha512...">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/regular.min.css" integrity="sha512...">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/brands.min.css" integrity="sha512..."> -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
@@ -96,10 +92,103 @@
     </script>
             </div>
             <div class="small-containers">
-        <div class="small-container"></div>
-        <div class="small-container"></div>
-        <div class="small-container"></div>
-        <div class="small-container"></div>
+        <div class="small-container">
+        <canvas id="doughnutChart"></canvas>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const doughnutCtx = document.getElementById('doughnutChart').getContext('2d');
+                    new Chart(doughnutCtx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['Red', 'Blue', 'Yellow'],
+                            datasets: [{
+                                data: [50, 30, 20],
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.6)',
+                                    'rgba(54, 162, 235, 0.6)',
+                                    'rgba(255, 206, 86, 0.6)'
+                                ],
+                                hoverOffset: 4
+                            }]
+                        }
+                    });
+                });
+            </script>
+        </div>
+        <div class="small-container">
+        <canvas id="lineChart"></canvas>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const lineCtx = document.getElementById('lineChart').getContext('2d');
+                    new Chart(lineCtx, {
+                        type: 'line',
+                        data: {
+                            labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5'],
+                            datasets: [{
+                                label: 'Temperature (°C)',
+                                data: [25, 28, 22, 30, 27],
+                                borderColor: 'rgba(255, 99, 132, 1)',
+                                borderWidth: 2,
+                                fill: false
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                });
+            </script>
+        </div>
+        <div class="small-container">
+        <canvas id="radarChart"></canvas>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const radarCtx = document.getElementById('radarChart').getContext('2d');
+                    new Chart(radarCtx, {
+                        type: 'radar',
+                        data: {
+                            labels: ['Label 1', 'Label 2', 'Label 3', 'Label 4', 'Label 5'],
+                            datasets: [{
+                                label: 'Dataset 1',
+                                data: [20, 40, 60, 80, 100],
+                                backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                                borderColor: 'rgba(255, 99, 132, 1)',
+                                borderWidth: 2
+                            }]
+                        }
+                    });
+                });
+            </script>
+        </div>
+        <div class="small-container">
+        <canvas id="polarAreaChart"></canvas>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const polarAreaCtx = document.getElementById('polarAreaChart').getContext('2d');
+                new Chart(polarAreaCtx, {
+                    type: 'polarArea',
+                    data: {
+                        labels: ['Label 1', 'Label 2', 'Label 3', 'Label 4', 'Label 5'],
+                        datasets: [{
+                            data: [20, 30, 40, 50, 60],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.6)',
+                                'rgba(54, 162, 235, 0.6)',
+                                'rgba(255, 206, 86, 0.6)',
+                                'rgba(75, 192, 192, 0.6)',
+                                'rgba(153, 102, 255, 0.6)'
+                            ],
+                            hoverOffset: 4
+                        }]
+                    }
+                });
+            });
+        </script>
+        </div>
     </div>
         </div>
         @push('js')
