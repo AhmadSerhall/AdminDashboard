@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/solid.min.css" integrity="sha512...">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/regular.min.css" integrity="sha512...">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/brands.min.css" integrity="sha512..."> -->
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 </head>
@@ -49,42 +49,52 @@
                 </ul>
             </div>
             <div class="charts-container" id="charts-container">
+    <canvas id="weatherChart"></canvas>
+</div>
 
-            </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        fetch('/fetch-chart-data')
+            .then(response => response.json())
+            .then(data => {
+                const labels = data.labels;
+                const values = data.values;
+
+                const ctx = document.getElementById('weatherChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Temperature (°C)',
+                            data: values,
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching chart data:', error);
+            });
+    });
+</script>
+            
         </div>
         @push('js')
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script>
         @endpush
         <script src="{{ asset('js/app.js') }}"></script>
-        <script>
-document.addEventListener('DOMContentLoaded', function () {
-    fetch('/fetch-chart-data')
-        .then(response => response.json())
-        .then(chartData => {
-            var ctx = document.getElementById('charts-container').getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5'],
-                    datasets: [{
-                        label: 'Temperature',
-                        data: chartData,
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
-        });
-});
-</script>
+       
+
 
     </div>
 </body>
