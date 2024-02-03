@@ -22,3 +22,6 @@ Route::get('/admin', function () {
 });
 Route::get('/fetch-chart-data', [ChartController::class, 'fetchData']);
 
+Route::get('/fetch-second-chart-data', [ChartController::class, 'fetchSecondChartData']);
+
+

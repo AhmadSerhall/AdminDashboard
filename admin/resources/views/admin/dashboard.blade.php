@@ -98,8 +98,70 @@
             </div>
             <div class="small-containers">
         <div class="small-container draggable dropzone" id="container1">
-        <canvas id="doughnutChart"></canvas>
-            <script>
+        <canvas id="secondChart"></canvas>
+        <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/fetch-second-chart-data')
+                .then(response => response.json())
+                .then(data => {
+                    const labels = data.labels;
+                    const values = data.values;
+
+                    const secondChartCtx = document.getElementById('secondChart').getContext('2d');
+                    new Chart(secondChartCtx, {
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Second Chart Data',
+                                data: values,
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.6)',
+                                    'rgba(54, 162, 235, 0.6)',
+                                    'rgba(255, 206, 86, 0.6)'
+                                ],
+                                hoverOffset: 10, // Adjust the hover effect
+                                borderWidth: 2, // Adjust the border width
+                                borderColor: 'white', // Set the border color
+                            }]
+                        },
+                        options: {
+                            cutout: '80%', // Adjust the size of the center hole
+                            rotation: -0.5 * Math.PI, // Rotate the chart to start from the top
+                            circumference: 2 * Math.PI, // Make it a full circle
+                            animation: {
+                                animateRotate: true, // Enable rotation animation
+                                animateScale: true, // Enable scale animation
+                            },
+                            responsive: true,
+                            maintainAspectRatio: false, // Allow the chart to resize
+                            legend: {
+                                display: true,
+                                position: 'bottom',
+                            },
+                            tooltips: {
+                                enabled: true,
+                                callbacks: {
+                                    label: function (tooltipItem, data) {
+                                        var dataset = data.datasets[tooltipItem.datasetIndex];
+                                        var total = dataset.data.reduce((previousValue, currentValue, currentIndex, array) => {
+                                            return previousValue + currentValue;
+                                        });
+                                        var currentValue = dataset.data[tooltipItem.index];
+                                        var percentage = Math.floor(((currentValue / total) * 100) + 0.5);
+                                        return percentage + '%';
+                                    }
+                                }
+                            }
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching second chart data:', error);
+                });
+        });
+    </script>
+    <!-- <script>
                 document.addEventListener('DOMContentLoaded', function () {
                     const doughnutCtx = document.getElementById('doughnutChart').getContext('2d');
                     new Chart(doughnutCtx, {
@@ -118,7 +180,7 @@
                         }
                     });
                 });
-            </script>
+            </script> -->
         </div>
         <div class="small-container draggable dropzone" id="container2">
         <canvas id="lineChart"></canvas>
