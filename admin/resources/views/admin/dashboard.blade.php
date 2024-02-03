@@ -92,7 +92,7 @@
     </script>
             </div>
             <div class="small-containers">
-        <div class="small-container">
+        <div class="small-container" draggable="true">
         <canvas id="doughnutChart"></canvas>
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
@@ -115,7 +115,7 @@
                 });
             </script>
         </div>
-        <div class="small-container">
+        <div class="small-container" draggable="true">
         <canvas id="lineChart"></canvas>
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
@@ -143,7 +143,7 @@
                 });
             </script>
         </div>
-        <div class="small-container">
+        <div class="small-container" draggable="true">
         <canvas id="radarChart"></canvas>
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
@@ -164,7 +164,7 @@
                 });
             </script>
         </div>
-        <div class="small-container">
+        <div class="small-container" draggable="true">
         <canvas id="polarAreaChart"></canvas>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
@@ -191,9 +191,9 @@
         </div>
     </div>
         </div>
-        @push('js')
+        <!-- @push('js')
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script>
-        @endpush
+        @endpush -->
         <script src="{{ asset('js/app.js') }}"></script>
     </div>
 </body>
