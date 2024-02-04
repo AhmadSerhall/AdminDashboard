@@ -119,23 +119,34 @@
     //         });
     // }
    // app.js
-   function loadContent(contentId) {
+   async function loadContent(contentId) {
     var chartsContainer = document.getElementById('charts-container');
-    return getContentHTML(contentId)
-        .then(contentHTML => {
-            chartsContainer.innerHTML = contentHTML;
-            chartsContainer.style.display = 'block';
-        })
-        .catch(error => {
-            console.error('Error loading content:', error);
-        });
+    var contentHTML = await getContentHTML(contentId); // Use await to wait for the promise to resolve
+    chartsContainer.innerHTML = contentHTML;
+    chartsContainer.style.display = 'block';
 }
 
 function getContentHTML(contentId) {
     switch (contentId) {
         case 'user-content':
             return fetch('/get-user-content')
-                .then(response => response.text())
+                .then(response => response.json())
+                .then(data => {
+                    const html = data.html; 
+                    console.log('Raw HTML:', html);
+
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const contentElement = doc.getElementById('user-content');
+
+                    if (contentElement) {
+                        const content = contentElement.innerHTML;
+                        console.log('Content:', content);
+                        return content.trim();
+                    } else {
+                        return '';
+                    }
+                })
                 .catch(error => {
                     console.error('Error fetching content:', error);
                     return '';
@@ -144,6 +155,10 @@ function getContentHTML(contentId) {
             return '';
     }
 }
+
+
+
+
 
 
 
