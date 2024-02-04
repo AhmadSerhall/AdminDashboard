@@ -36,7 +36,7 @@
             <div class="side-menu ">
                 <ul class="side-menu-items flex column ">
                     <li><a href="#"><i class="fas fa-home"></i> Dashboard</a></li>
-                    <li><a href="user.php"><i class="fas fa-users"></i>Users<i class="fas fa-caret-right right"></i></a></li>
+                    <li><a href="#" onclick="showContent('users-content')"><i class="fas fa-users"></i> Users<i class="fas fa-caret-right right"></i></a></li>
                     <li><a href="order.php"><i class="fas fa-pen"></i>Orders<i class="fas fa-caret-right right"></i></a></li>
                     <li><a href="product.php"><i class="fas fa-box-open"></i>Products<i class="fas fa-caret-right right"></i></a></li>
                     <li><a href="category.php"><i class="fas fa-layer-group"></i><i class="fas fa-caret-right right"></i>Categories</a></li>
@@ -50,7 +50,7 @@
                 </ul>
             </div>
                 <div class="charts-container" id="charts-container">
-                    <div class="big-container">
+                    <div class="big-container" id="big-container">
                     <canvas id="weatherChart"></canvas>
                 
                     <script>
@@ -120,18 +120,18 @@
                                     'rgba(54, 162, 235, 0.6)',
                                     'rgba(255, 206, 86, 0.6)'
                                 ],
-                                hoverOffset: 10, // Adjust the hover effect
-                                borderWidth: 2, // Adjust the border width
-                                borderColor: 'white', // Set the border color
+                                hoverOffset: 10,
+                                borderWidth: 2, 
+                                borderColor: 'white', 
                             }]
                         },
                         options: {
-                            cutout: '80%', // Adjust the size of the center hole
-                            rotation: -0.5 * Math.PI, // Rotate the chart to start from the top
-                            circumference: 2 * Math.PI, // Make it a full circle
+                            cutout: '80%',
+                            rotation: -0.5 * Math.PI,
+                            circumference: 2 * Math.PI,
                             animation: {
-                                animateRotate: true, // Enable rotation animation
-                                animateScale: true, // Enable scale animation
+                                animateRotate: true,
+                                animateScale: true, 
                             },
                             responsive: true,
                             maintainAspectRatio: false, // Allow the chart to resize

@@ -101,6 +101,17 @@
             }
         });
     });
+    function showContent(contentId) {
+        var containers = document.querySelectorAll('.charts-container');
+        containers.forEach(function (container) {
+            container.style.display = 'none';
+        });
+        
+        var selectedContainer = document.getElementById(contentId);
+        if (selectedContainer) {
+            selectedContainer.style.display = 'block';
+        }
+    }
     
     
     
