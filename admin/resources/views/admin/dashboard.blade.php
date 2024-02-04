@@ -55,7 +55,7 @@
                 
                     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            fetch('/fetch-chart-data')
+            // fetch('/fetch-chart-data')
                 .then(response => response.json())
                 .then(data => {
                     const labels = data.labels;
@@ -101,7 +101,7 @@
         <canvas id="secondChart"></canvas>
         <script>
         document.addEventListener('DOMContentLoaded', function () {
-            fetch('/fetch-second-chart-data')
+            // fetch('/fetch-second-chart-data')
                 .then(response => response.json())
                 .then(data => {
                     const labels = data.labels;
@@ -161,14 +161,18 @@
                 });
         });
     </script>
-    <!-- <script>
+        </div>
+        <div class="small-container draggable dropzone" id="container2">
+    <canvas id="doughnutChart"></canvas>
+        <script>
                 document.addEventListener('DOMContentLoaded', function () {
                     const doughnutCtx = document.getElementById('doughnutChart').getContext('2d');
                     new Chart(doughnutCtx, {
                         type: 'doughnut',
                         data: {
-                            labels: ['Red', 'Blue', 'Yellow'],
+                            labels: ['Cloudy', 'Windy', 'Clear'],
                             datasets: [{
+                                label:'Day Types',
                                 data: [50, 30, 20],
                                 backgroundColor: [
                                     'rgba(255, 99, 132, 0.6)',
@@ -180,27 +184,21 @@
                         }
                     });
                 });
-            </script> -->
-        </div>
-        <div class="small-container draggable dropzone" id="container2">
-        <canvas id="thirdChart"></canvas>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            fetch('/fetch-third-chart-data')
-                .then(response => response.json())
-                .then(data => {
-                    const labels = data.labels;
-                    const values = data.values;
-
-                    const thirdChartCtx = document.getElementById('thirdChart').getContext('2d');
-                    new Chart(thirdChartCtx, {
-                        type: 'doughnut', 
+            </script>
+</div>
+        <div class="small-container draggable dropzone" id="container3">
+        <canvas id="lineChart" class="line"></canvas>
+        <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const lineCtx = document.getElementById('lineChart').getContext('2d');
+                    new Chart(lineCtx, {
+                        type: 'line',
                         data: {
-                            labels: labels,
+                            labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5'],
                             datasets: [{
-                                label: 'Third Chart Data',
-                                data: values,
-                                borderColor: 'rgba(75, 192, 192, 1)',
+                                label: 'Temperature (°C)',
+                                data: [25, 28, 22, 30, 27],
+                                borderColor: 'rgba(255, 99, 132, 1)',
                                 borderWidth: 2,
                                 fill: false
                             }]
@@ -208,34 +206,9 @@
                         options: {
                             scales: {
                                 y: {
-                                    beginAtZero: true
+                                    beginAtZero: false
                                 }
                             }
-                        }
-                    });
-                })
-                .catch(error => {
-                    console.error('Error fetching third chart data:', error);
-                });
-        });
-    </script>
-        </div>
-        <div class="small-container draggable dropzone" id="container3">
-        <canvas id="radarChart"></canvas>
-            <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    const radarCtx = document.getElementById('radarChart').getContext('2d');
-                    new Chart(radarCtx, {
-                        type: 'radar',
-                        data: {
-                            labels: ['Label 1', 'Label 2', 'Label 3', 'Label 4', 'Label 5'],
-                            datasets: [{
-                                label: 'Dataset 1',
-                                data: [20, 40, 60, 80, 100],
-                                backgroundColor: 'rgba(255, 99, 132, 0.6)',
-                                borderColor: 'rgba(255, 99, 132, 1)',
-                                borderWidth: 2
-                            }]
                         }
                     });
                 });
@@ -249,7 +222,7 @@
                 new Chart(polarAreaCtx, {
                     type: 'polarArea',
                     data: {
-                        labels: ['Label 1', 'Label 2', 'Label 3', 'Label 4', 'Label 5'],
+                        labels: ['Sunny', 'Cloudy', 'Rainy', 'Windy', 'Snowy'],
                         datasets: [{
                             data: [20, 30, 40, 50, 60],
                             backgroundColor: [

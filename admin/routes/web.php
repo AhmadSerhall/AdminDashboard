@@ -24,7 +24,7 @@ Route::get('/fetch-chart-data', [ChartController::class, 'fetchData']);
 
 Route::get('/fetch-second-chart-data', [ChartController::class, 'fetchSecondChartData']);
 
-Route::get('/fetch-third-chart-data', [ChartController::class, 'fetchThirdChartData']);
+// Route::get('/fetch-third-chart-data', [ChartController::class, 'fetchThirdChartData']);
 
 
 
