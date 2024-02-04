@@ -119,11 +119,16 @@
     //         });
     // }
    // app.js
-function loadContent(contentId) {
+   function loadContent(contentId) {
     var chartsContainer = document.getElementById('charts-container');
-    var contentHTML = getContentHTML(contentId);
-    chartsContainer.innerHTML = contentHTML;
-    chartsContainer.style.display = 'block';
+    return getContentHTML(contentId)
+        .then(contentHTML => {
+            chartsContainer.innerHTML = contentHTML;
+            chartsContainer.style.display = 'block';
+        })
+        .catch(error => {
+            console.error('Error loading content:', error);
+        });
 }
 
 function getContentHTML(contentId) {
@@ -139,6 +144,7 @@ function getContentHTML(contentId) {
             return '';
     }
 }
+
 
 
 

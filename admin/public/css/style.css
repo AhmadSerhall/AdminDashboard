@@ -61,7 +61,6 @@
     height:3em;
     border-radius: 7px;
     padding:5px;
-    border:1px solid black;
     outline: none;
 }
 input::placeholder{
@@ -70,7 +69,6 @@ input::placeholder{
 .profile{
     width:50px;
     height:50px;
-    border:1.5px solid black;
 }
 .profile img{
     object-fit:fill;
@@ -131,11 +129,10 @@ input::placeholder{
 .charts-container{
     width:100%;
     display: flex;
-    border:2px solid red;
     color:black;
 }
 .big-container{
-    border:2px solid black;
+    border:2px solid pink;
     width:60%;
     padding:5em 1em;
     margin:1em;
@@ -147,7 +144,6 @@ input::placeholder{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    border: 2px solid orange;
     padding:1em;
 }
 

@@ -36,7 +36,7 @@
             <div class="side-menu ">
                 <ul class="side-menu-items flex column ">
                     <li><a href="/admin"><i class="fas fa-home"></i> Dashboard</a></li>
-                    <li><a href="javascript:void(0);" onclick="loadContent('users-content')"><i class="fas fa-users"></i> Users<i class="fas fa-caret-right right"></i></a></li>
+                    <li><a href="javascript:void(0);" onclick="loadContent('user-content')"><i class="fas fa-users"></i> Users<i class="fas fa-caret-right right"></i></a></li>
                     <li><a href="order.php"><i class="fas fa-pen"></i>Orders<i class="fas fa-caret-right right"></i></a></li>
                     <li><a href="product.php"><i class="fas fa-box-open"></i>Products<i class="fas fa-caret-right right"></i></a></li>
                     <li><a href="category.php"><i class="fas fa-layer-group"></i><i class="fas fa-caret-right right"></i>Categories</a></li>
