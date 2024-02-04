@@ -101,18 +101,50 @@
             }
         });
     });
-    function showContent(contentId) {
-        var containers = document.querySelectorAll('.charts-container');
-        containers.forEach(function (container) {
-            container.style.display = 'none';
-        });
-        
-        var selectedContainer = document.getElementById(contentId);
-        if (selectedContainer) {
-            selectedContainer.style.display = 'block';
-        }
-    }
+    // function showContent(contentId) {
+    //     // Fetch the content HTML from the server
+    //     fetch('/content/' + contentId)  // Use the correct route
+    //         .then(response => response.text())
+    //         .then(data => {
+    //             console.log('Fetched data:', data); // Log the fetched data
+    //             // Update the charts-container with the received HTML
+    //             var chartsContainer = document.getElementById('charts-container');
+    //             chartsContainer.innerHTML = data;
     
+    //             // Display the updated charts-container
+    //             chartsContainer.style.display = 'block';
+    //         })
+    //         .catch(error => {
+    //             console.error('Error fetching content:', error);
+    //         });
+    // }
+   // app.js
+function loadContent(contentId) {
+    var chartsContainer = document.getElementById('charts-container');
+    var contentHTML = getContentHTML(contentId);
+    chartsContainer.innerHTML = contentHTML;
+    chartsContainer.style.display = 'block';
+}
+
+function getContentHTML(contentId) {
+    switch (contentId) {
+        case 'user-content':
+            return fetch('/get-user-content')
+                .then(response => response.text())
+                .catch(error => {
+                    console.error('Error fetching content:', error);
+                    return '';
+                });
+        default:
+            return '';
+    }
+}
+
+
+
+    
+    
+
     
     
     
