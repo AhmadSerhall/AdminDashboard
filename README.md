@@ -13,7 +13,7 @@ The AdminDashboard is built on a robust and reliable technology stack, ensuring 
 AdminDashboard was crafted through the thoughtful use of wireframes, employing a dedicated iterative process to achieve an optimal layout. This method guarantees a seamless user experience and facilitates straightforward navigation.Here is the [figma](https://www.figma.com/file/qhfJ8Aw6qQm33PHht7tFO5/admin-wireframe?type=design&node-id=0-1&mode=design&t=Q2N5Qr3RDeNTAtF8-0) file for this project
 
 
- ![Dashboard]("C:\Users\notAhmad\Desktop\AdminDashboard\admin\public\assets\admindashboard.png") 
+![Dashboard](C:\Users\notAhmad\Desktop\AdminDashboard\admin\public\assets\admindashboard.png)
 
 ### How to run 
 >Follow these steps to set up and run AdminDashboard locally on your machine
