@@ -191,10 +191,6 @@ input::placeholder{
     .small-containers {
         display: flex;
         flex-direction: column;
-        /* width:100%;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center; */
         border: 2px solid orange;
         /* padding:1em; */
         margin:1em;

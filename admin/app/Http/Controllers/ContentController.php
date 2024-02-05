@@ -15,4 +15,13 @@ class ContentController extends Controller
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
+    public function getOrderContent()
+    {
+        try {
+            $content = view('admin.order-content')->render();
+            return response()->json(['html' => $content]);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
 }

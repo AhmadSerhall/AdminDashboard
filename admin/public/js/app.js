@@ -121,7 +121,7 @@
    // app.js
    async function loadContent(contentId) {
     var chartsContainer = document.getElementById('charts-container');
-    var contentHTML = await getContentHTML(contentId); // Use await to wait for the promise to resolve
+    var contentHTML = await getContentHTML(contentId); 
     chartsContainer.innerHTML = contentHTML;
     chartsContainer.style.display = 'block';
 }
@@ -133,7 +133,7 @@ function getContentHTML(contentId) {
                 .then(response => response.json())
                 .then(data => {
                     const html = data.html; 
-                    console.log('Raw HTML:', html);
+                    // console.log('Raw HTML:', html);
 
                     const parser = new DOMParser();
                     const doc = parser.parseFromString(html, 'text/html');
@@ -141,7 +141,7 @@ function getContentHTML(contentId) {
 
                     if (contentElement) {
                         const content = contentElement.innerHTML;
-                        console.log('Content:', content);
+                        // console.log('Content:', content);
                         return content.trim();
                     } else {
                         return '';
@@ -155,7 +155,41 @@ function getContentHTML(contentId) {
             return '';
     }
 }
+function getContentHTML1(contentId) {
+    switch (contentId) {
+        case 'order-content':
+            return fetch('/get-order-content')
+                .then(response => response.json())
+                .then(data => {
+                    const html = data.html; 
+                    // console.log('Raw HTML:', html);
 
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const contentElement = doc.getElementById('order-content');
+
+                    if (contentElement) {
+                        const content = contentElement.innerHTML;
+                        // console.log('Content:', content);
+                        return content.trim();
+                    } else {
+                        return '';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching content:', error);
+                    return '';
+                });
+        default:
+            return '';
+    }
+}
+async function loadContent1(contentId) {
+    var chartsContainer = document.getElementById('charts-container');
+    var contentHTML = await getContentHTML1(contentId); 
+    chartsContainer.innerHTML = contentHTML;
+    chartsContainer.style.display = 'block';
+}
 
 
 

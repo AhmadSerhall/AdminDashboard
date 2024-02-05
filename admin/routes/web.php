@@ -31,6 +31,7 @@ Route::get('/fetch-second-chart-data', [ChartController::class, 'fetchSecondChar
 // Route::get('/fetch-content/{section}', [ContentController::class, 'fetch']);
 // Route::get('/content/{section}', [ContentController::class, 'show']);
 Route::get('/get-user-content', [ContentController::class, 'getUserContent']);
+Route::get('/get-order-content', [ContentController::class, 'getOrderContent']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
