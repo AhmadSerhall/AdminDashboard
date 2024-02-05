@@ -55,7 +55,7 @@
                 
                     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // fetch('/fetch-chart-data')
+            fetch('/fetch-chart-data')
                 .then(response => response.json())
                 .then(data => {
                     const labels = data.labels;
@@ -101,7 +101,7 @@
         <canvas id="secondChart"></canvas>
         <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // fetch('/fetch-second-chart-data')
+            fetch('/fetch-second-chart-data')
                 .then(response => response.json())
                 .then(data => {
                     const labels = data.labels;
