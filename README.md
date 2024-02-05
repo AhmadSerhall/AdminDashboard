@@ -15,3 +15,40 @@ AdminDashboard was crafted through the thoughtful use of wireframes, employing a
 |Dashboard|
 |- - -|
 | ![Dashboard]("./public/assets/admindashboard.png") |
+
+### How to run 
+>Follow these steps to set up and run AdminDashboard locally on your machine
+
+## Prerequisites
+ 
+- Ensure you have PHP installed on your machine. You can download it from [php.net](https://www.php.net)
+- Install Composer, a PHP dependency manager. You can find the installation instructions at [getcomposer.org](https://getcomposer.org/)
+- Set up a database and update the database configurations in the .env file.
+
+
+##Installation
+1. Clone the repository 
+```sh
+   git clone https://github.com/AhmadSerhall/AdminDashboard
+   ```
+2. Navigate to the project
+```sh
+   cd AdminDashboard
+   ```
+3. Install Dependencies
+```sh
+   composer install
+   npm install chart.js
+   ```
+4. Run Migrations and seed Database
+```sh
+   php artisan migrate --seed
+   ```
+5. Start the deployment Server
+```sh
+   php artisan serve
+   ```
+6. Access the Application
+   Open your web browser and navigate to http://localhost:8000 to explore your Laravel project.
+
+Now, you're ready to dive into your AdminDashboard, combining the power of backend functionality with the dynamic frontend features, including Chart.js visualization. Happy coding! 🚀
