@@ -14,4 +14,4 @@ AdminDashboard was crafted through the thoughtful use of wireframes, employing a
 
 |Dashboard|
 |- - -|
-| ![Dashboard]("C:\Users\notAhmad\Desktop\admin.png") |
+| ![Dashboard]("./assets/admindashboard.png") |
